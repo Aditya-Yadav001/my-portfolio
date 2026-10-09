@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Aditya Yadav | Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0f172a;
+            color: white;
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #111827;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #263449;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #38bdf8;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+        /* Hero Section */
+        header {
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(135deg, #0f172a, #172554, #164e63);
+        }
+
+        .profile-circle {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            margin-bottom: 25px;
+            border: 4px solid #ffffff;
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.3);
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .profile-circle img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        header h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        header h1 span {
+            color: #38bdf8;
+        }
+
+        header p {
+            font-size: 19px;
+            color: #cbd5e1;
+            margin-bottom: 25px;
+        }
+
+        .tagline {
+            max-width: 600px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: #38bdf8;
+            color: #0f172a;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+            margin: 5px;
+        }
+
+        .btn:hover {
+            background-color: white;
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #38bdf8;
+            color: #38bdf8;
+        }
+
+        .btn-outline:hover {
+            background-color: #38bdf8;
+            color: #0f172a;
+        }
+
+        /* Common Section */
+        section {
+            padding: 75px 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 34px;
+            margin-bottom: 40px;
+        }
+
+        .section-title span {
+            color: #38bdf8;
+        }
+
+        /* About Section */
+        .about-box {
+            max-width: 850px;
+            margin: auto;
+            padding: 30px;
+            background-color: #1e293b;
+            border-radius: 15px;
+            border: 1px solid #334155;
+            text-align: center;
+        }
+
+        .about-box p {
+            color: #cbd5e1;
+            font-size: 17px;
+        }
+
+        /* Skills Section */
+        #skills {
+            background-color: #111827;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            background-color: #1e293b;
+            padding: 25px 15px;
+            text-align: center;
+            border-radius: 12px;
+            border: 1px solid #334155;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            border-color: #38bdf8;
+            box-shadow: 0 8px 25px rgba(56, 189, 248, 0.12);
+        }
+
+        .skill-card h3 {
+            color: #38bdf8;
+            margin-bottom: 8px;
+        }
+
+        .skill-card p {
+            color: #cbd5e1;
+            font-size: 14px;
+        }
+
+        /* Projects Section */
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .project-card {
+            background-color: #1e293b;
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid #334155;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-7px);
+            border-color: #38bdf8;
+        }
+
+        .project-icon {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .project-card h3 {
+            color: #38bdf8;
+            margin-bottom: 12px;
+        }
+
+        .project-card p {
+            color: #cbd5e1;
+            margin-bottom: 18px;
+        }
+
+        .project-tag {
+            display: inline-block;
+            background-color: #0f172a;
+            color: #7dd3fc;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin: 3px;
+        }
+
+        /* Contact Section */
+        #contact {
+            background-color: #111827;
+            text-align: center;
+        }
+
+        .contact-box {
+            max-width: 650px;
+            margin: auto;
+            background-color: #1e293b;
+            padding: 35px 20px;
+            border-radius: 15px;
+            border: 1px solid #334155;
+        }
+
+        .contact-box p {
+            color: #cbd5e1;
+            margin-bottom: 20px;
+        }
+
+        .email-link {
+            color: #38bdf8;
+            text-decoration: none;
+            overflow-wrap: anywhere;
+        }
+
+        .email-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0b1120;
+            text-align: center;
+            padding: 22px;
+            color: #94a3b8;
+            border-top: 1px solid #263449;
+        }
+
+        footer span {
+            color: #38bdf8;
+        }
+
+
+        /* Source Code Viewer */
+        .view-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 16px;
+            border: none;
+            border-radius: 25px;
+            background: #38bdf8;
+            color: #0f172a;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .view-btn:hover {
+            background: white;
+            transform: translateY(-2px);
+        }
+
+        .code-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
+            overflow-y: auto;
+            padding: 24px 14px;
+            background: rgba(2, 6, 23, 0.92);
+        }
+
+        .code-content {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 22px;
+            border: 1px solid #38bdf8;
+            border-radius: 14px;
+            background: #111827;
+        }
+
+        .code-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            margin-bottom: 18px;
+        }
+
+        .code-header h2 {
+            color: #38bdf8;
+            font-size: 23px;
+        }
+
+        .code-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .copy-btn, .close-btn {
+            padding: 9px 15px;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .copy-btn {
+            background: #38bdf8;
+            color: #0f172a;
+        }
+
+        .close-btn {
+            background: #ef4444;
+            color: white;
+        }
+
+        .code-content pre {
+            max-height: 65vh;
+            overflow: auto;
+            padding: 18px;
+            border-radius: 8px;
+            background: #020617;
+            color: #e2e8f0;
+            text-align: left;
+            white-space: pre;
+            line-height: 1.55;
+            font-size: 13px;
+            tab-size: 4;
+        }
+
+        .code-note {
+            margin-bottom: 14px;
+            color: #cbd5e1;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 12px;
+                padding: 15px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            header h1 {
+                font-size: 35px;
+            }
+
+            header p {
+                font-size: 16px;
+            }
+
+            section {
+                padding: 55px 6%;
+            }
+
+            .skills-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .projects-container {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                gap: 10px;
+                font-size: 14px;
+            }
+
+            header h1 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Aditya.dev</div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Home Section -->
+    <header id="home">
+
+        <div class="profile-circle"><img src="profile.jpeg" alt="Aditya Yadav profile photo"></div>
+
+        <h1> <span>Aditya Yadav</span></h1>
+
+        <p>CSE Student | AI & Machine Learning</p>
+
+        <p class="tagline">
+            An aspiring Software Engineer passionate about programming,
+            problem-solving, and learning new technologies.
+        </p>
+
+        <div>
+            <a href="#projects" class="btn">View My Projects</a>
+            <a href="#contact" class="btn btn-outline">Contact Me</a>
+        </div>
+
+    </header>
+
+    <!-- About Section -->
+    <section id="about">
+
+        <h2 class="section-title">About <span>Me</span></h2>
+
+        <div class="about-box">
+            <p>
+                Hello! I am Aditya Yadav, a Computer Science Engineering
+                student specializing in Artificial Intelligence and
+                Machine Learning. I am currently learning Java, HTML,
+                CSS, and problem-solving techniques. My goal is to
+                become a skilled Software Engineer by continuously
+                improving my technical knowledge and building useful
+                projects.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+
+        <h2 class="section-title">My <span>Skills</span></h2>
+
+        <div class="skills-container">
+
+            <div class="skill-card">
+                <h3>Java</h3>
+                <p>Programming and OOP concepts</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>HTML</h3>
+                <p>Webpage structure and content</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>CSS</h3>
+                <p>Website styling and layouts</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>Problem Solving</h3>
+                <p>Logic building and coding practice</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+
+        <h2 class="section-title">My <span>Projects</span></h2>
+
+        <div class="projects-container">
+
+            <div class="project-card">
+
+                <div class="project-icon">🧮</div>
+
+                <h3>Scientific Calculator</h3>
+
+                <p>
+                    A console-based scientific calculator developed
+                    using Java. It supports arithmetic operations,
+                    square root, power, logarithms, trigonometric
+                    functions, modulus, factorial, cube root, and
+                    temperature conversion.
+                </p>
+
+                <span class="project-tag">Java</span>
+                <span class="project-tag">OOP</span>
+
+                <button class="view-btn" type="button"
+                        onclick="openSource('java')">
+                    View Java Source Code &rarr;
+                </button>
+
+            </div>
+
+            <div class="project-card">
+
+                <div class="project-icon">🌐</div>
+
+                <h3>Portfolio Website</h3>
+
+                <p>
+                    A personal portfolio website created to showcase
+                    my introduction, technical skills, projects, and
+                    contact information using HTML and CSS.
+                </p>
+
+                <span class="project-tag">HTML</span>
+                <span class="project-tag">CSS</span>
+                <span class="project-tag">Responsive Design</span>
+
+                <button class="view-btn" type="button"
+                        onclick="openSource('portfolio')">
+                    View HTML Source Code &rarr;
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+
+        <h2 class="section-title">Contact <span>Me</span></h2>
+
+        <div class="contact-box">
+
+            <p>
+                Have a question or want to connect?
+                Feel free to send me an email.
+            </p>
+
+            <p>
+                📧
+                <a class="email-link"
+                   href="mailto:adityadeoria9670@gmail.com">
+                    adityadeoria9670@gmail.com
+                </a>
+            </p>
+
+            <a href="mailto:adityadeoria9670@gmail.com" class="btn">
+                Send Me an Email
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>
+            &copy; 2026 <span>Aditya Yadav</span>.
+            All rights reserved.
+        </p>
+    </footer>
+
+
+    <!-- Source code viewer: this displays code as text; it does not run the Java program. -->
+    <div id="sourceModal" class="code-modal" role="dialog" aria-modal="true"
+         aria-labelledby="sourceTitle">
+        <div class="code-content">
+            <div class="code-header">
+                <h2 id="sourceTitle">Project Source Code</h2>
+                <button class="close-btn" type="button" onclick="closeSource()">Close &times;</button>
+            </div>
+            <p class="code-note" id="sourceNote">Source code is displayed as text only. It is not executed.</p>
+            <div class="code-actions">
+                <button class="copy-btn" type="button" onclick="copySource()">Copy Source Code</button>
+            </div>
+            <pre><code id="sourceDisplay"></code></pre>
+        </div>
+    </div>
+
+    <!-- Plain-text storage only: this Java program is never executed by the browser. -->
+    <script type="text/plain" id="java-source">package com.rr;
+
+import java.util.Scanner;
+
+public class ScientificCalculator {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int choice;
+
+        do {
+            System.out.println("||======================================||");
+            System.out.println("||      * SCIENTIFIC CALCULATOR *       ||");
+            System.out.println("||======================================||");
+            System.out.println("||          1. Addition                 ||");
+            System.out.println("||          2. Subtraction              ||");
+            System.out.println("||          3. Multiplication           ||");
+            System.out.println("||          4. Division                 ||");
+            System.out.println("||          5. Modulus                  ||");
+            System.out.println("||          6. Square Root              ||");
+            System.out.println("||          7. Power                    ||");
+            System.out.println("||          8. Log                      ||");
+            System.out.println("||          9. Sin                      ||");
+            System.out.println("||          10. Cos                     ||");
+            System.out.println("||          11. Tan                     ||");
+            System.out.println("||          12. Factorial               ||");
+            System.out.println("||          13. Cube Root               ||");
+            System.out.println("||          14. Temperature Converter   ||");
+            System.out.println("||          15. Exit                    ||");
+            System.out.println("||======================================||");
+
+            System.out.print("Enter your choice: ");
+            choice = sc.nextInt();
+
+            double a, b;
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter your first number: ");
+                    a = sc.nextDouble();
+                    System.out.print("Enter your second number: ");
+                    b = sc.nextDouble();
+                    System.out.println("Result = " + (a + b));
+                    break;
+
+                case 2:
+                    System.out.print("Enter your first number: ");
+                    a = sc.nextDouble();
+                    System.out.print("Enter your second number: ");
+                    b = sc.nextDouble();
+                    System.out.println("Result = " + (a - b));
+                    break;
+
+                case 3:
+                    System.out.print("Enter your first number: ");
+                    a = sc.nextDouble();
+                    System.out.print("Enter your second number: ");
+                    b = sc.nextDouble();
+                    System.out.println("Result = " + (a * b));
+                    break;
+
+                case 4:
+                    System.out.print("Enter your first number: ");
+                    a = sc.nextDouble();
+                    System.out.print("Enter your second number: ");
+                    b = sc.nextDouble();
+                    if (b == 0) {
+                        System.out.println("Error! Division by zero is not allowed.");
+                    } else {
+                        System.out.println("Result = " + (a / b));
+                    }
+                    break;
+
+                case 5:
+                    System.out.print("Enter your first number: ");
+                    a = sc.nextDouble();
+                    System.out.print("Enter your second number: ");
+                    b = sc.nextDouble();
+                    if (b == 0) {
+                        System.out.println("Error! Modulus by zero is not allowed.");
+                    } else {
+                        System.out.println("Result = " + (a % b));
+                    }
+                    break;
+
+                case 6:
+                    System.out.print("Enter a number: ");
+                    a = sc.nextDouble();
+                    if (a < 0) {
+                        System.out.println("Square root of a negative number is not possible.");
+                    } else {
+                        System.out.println("Result = " + Math.sqrt(a));
+                    }
+                    break;
+
+                case 7:
+                    System.out.print("Enter the base: ");
+                    a = sc.nextDouble();
+                    System.out.print("Enter the exponent: ");
+                    b = sc.nextDouble();
+                    System.out.println("Result = " + Math.pow(a, b));
+                    break;
+
+                case 8:
+                    System.out.print("Enter a positive number: ");
+                    a = sc.nextDouble();
+                    if (a <= 0) {
+                        System.out.println("Logarithm requires a positive number.");
+                    } else {
+                        System.out.println("Result = " + Math.log10(a));
+                    }
+                    break;
+
+                case 9:
+                    System.out.print("Enter angle in degrees: ");
+                    a = sc.nextDouble();
+                    System.out.println("Result = " + Math.sin(Math.toRadians(a)));
+                    break;
+
+                case 10:
+                    System.out.print("Enter angle in degrees: ");
+                    a = sc.nextDouble();
+                    System.out.println("Result = " + Math.cos(Math.toRadians(a)));
+                    break;
+
+                case 11:
+                    System.out.print("Enter angle in degrees: ");
+                    a = sc.nextDouble();
+                    System.out.println("Result = " + Math.tan(Math.toRadians(a)));
+                    break;
+
+                case 12:
+                    System.out.print("Enter a non-negative integer: ");
+                    int n = sc.nextInt();
+                    if (n < 0) {
+                        System.out.println("Factorial is not defined for negative integers.");
+                    } else if (n > 20) {
+                        System.out.println("Number too large for long factorial.");
+                    } else {
+                        long fact = 1;
+                        for (int i = 1; i <= n; i++) {
+                            fact *= i;
+                        }
+                        System.out.println("Factorial = " + fact);
+                    }
+                    break;
+
+                case 13:
+                    System.out.print("Enter a number: ");
+                    a = sc.nextDouble();
+                    System.out.println("Cube Root = " + Math.cbrt(a));
+                    break;
+
+                case 14:
+                    System.out.print("Enter temperature in Celsius: ");
+                    a = sc.nextDouble();
+                    System.out.println("Fahrenheit = " + ((a * 9 / 5) + 32));
+                    break;
+
+                case 15:
+                    System.out.println("Thank you for using Scientific Calculator!");
+                    break;
+
+                default:
+                    System.out.println("Invalid Choice!");
+            }
+
+            System.out.println();
+        } while (choice != 15);
+
+        sc.close();
+    }
+}</script>
+
+    <script>
+        let currentSource = "";
+
+        function openSource(type) {
+            const display = document.getElementById("sourceDisplay");
+            const title = document.getElementById("sourceTitle");
+            const note = document.getElementById("sourceNote");
+
+            if (type === "java") {
+                currentSource = document.getElementById("java-source").textContent.trim();
+                title.textContent = "Scientific Calculator - Java Source Code";
+                note.textContent = "Java source code only. This program is not executed in the browser.";
+            } else {
+                currentSource = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+                title.textContent = "Portfolio Website - HTML Source Code";
+                note.textContent = "HTML source code of this portfolio page. It is displayed as text only.";
+            }
+
+            display.textContent = currentSource;
+            document.getElementById("sourceModal").style.display = "block";
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeSource() {
+            document.getElementById("sourceModal").style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+
+        function copySource() {
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(currentSource)
+                    .then(() => alert("Source code copied!"))
+                    .catch(() => copySourceFallback());
+            } else {
+                copySourceFallback();
+            }
+        }
+
+        function copySourceFallback() {
+            const temp = document.createElement("textarea");
+            temp.value = currentSource;
+            temp.style.position = "fixed";
+            temp.style.opacity = "0";
+            document.body.appendChild(temp);
+            temp.select();
+            try {
+                document.execCommand("copy");
+                alert("Source code copied!");
+            } catch (error) {
+                alert("Copy failed. Please select the code and copy it manually.");
+            }
+            temp.remove();
+        }
+
+        document.getElementById("sourceModal").addEventListener("click", function(event) {
+            if (event.target === this) closeSource();
+        });
+
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "Escape") closeSource();
+        });
+    </script>
+
+</body>
+</html>
